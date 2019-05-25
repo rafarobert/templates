@@ -1,0 +1,42 @@
+propel:
+  database:
+      connections:
+          prod:
+              adapter: mysql
+              classname: Propel\Runtime\Connection\ConnectionWrapper
+              dsn: mysql:host=127.0.0.1;dbname=impuestos_prod
+              user: rgutierrez
+              password: 0950651324
+              attributes:
+          dev:
+              adapter: mysql
+              classname: Propel\Runtime\Connection\DebugPDO
+              dsn: mysql:host=127.0.0.1;dbname=impuestos_dev
+              user: estic
+              password: estic123
+              attributes:
+          test:
+              adapter: mysql
+              classname: Propel\Runtime\Connection\DebugPDO
+              dsn: mysql:host=127.0.0.1;dbname=impuestos_test
+              user: estic
+              password: estic123
+              attributes:
+                
+  runtime:
+      log:
+          defaultLogger:
+              type: stream
+              path: ./propel_log.txt
+              level: 100
+      defaultConnection: prod
+      connections:
+          - prod
+          - dev
+          - test
+  generator:
+      defaultConnection: prod
+      connections:
+          - prod
+          - dev
+          - test
