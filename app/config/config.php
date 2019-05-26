@@ -22,7 +22,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$config['proy_name'] = 'impuestos';
 
 /*
 |--------------------------------------------------------------------------
@@ -519,28 +518,61 @@ $config['database'] = [];
 */
  $config['proxy_ips'] = '';
 
+//$config['base_url'] = 'http://local.impuestos.com.bo/';
 
-$config['base_url'] = 'http://local.impuestos.com.bo/';
+$config["hosts"] = [
 
-$config["impuestos"] = [
-  [
-    "host" => "local.impuestos.com.bo",
-    "hostname-core" => "local.estic.com.bo",
-    "hostname" => "local.impuestos.com.bo",
-    "protocol"=> "http:",
-    "port"=> "80",
-    "origin"=> "http://local.impuestos.com.bo/",
-    "dest"=> "http://local.impuestos.com.bo/",
-    "root-path"=> "",
-    "type-url"=> "dns",
-    "type-env"=> "dev"
-  ]
+    "impuestos" => [
+        [
+            "proy" => "impuestos",
+            "host" => "local.impuestos.com.bo",
+            "hostname-core" => "local.estic.com.bo",
+            "hostname" => "local.impuestos.com.bo",
+            "protocol" => "http:",
+            "port" => "80",
+            "origin" => "http://local.impuestos.com.bo/",
+            "dest" => "http://local.impuestos.com.bo/",
+            "root-path" => "",
+            "type-url" => "dns",
+            "type-env" => "dev"
+        ],
+    ],
+
+    "bmsc" => [
+        [
+            "proy" => "bmsc",
+            "host" => "local.bmsc.com.bo",
+            "hostname-core" => "local.estic.com.bo",
+            "hostname" => "local.bmsc.com.bo",
+            "protocol" => "http:",
+            "port" => "80",
+            "origin" => "http://local.bmsc.com.bo/",
+            "dest" => "http://local.bmsc.com.bo/",
+            "root-path" => "",
+            "type-url" => "dns",
+            "type-env" => "dev"
+        ],
+    ],
+    "uninet" => [
+        [
+            "proy" => "uninet",
+            "host" => "local.bancounion.com.bo",
+            "hostname-core" => "local.estic.com.bo",
+            "hostname" => "local.bancounion.com.bo",
+            "protocol" => "http:",
+            "port" => "80",
+            "origin" => "http://local.bancounion.com.bo/",
+            "dest" => "http://local.bancounion.com.bo/",
+            "root-path" => "",
+            "type-url" => "dns",
+            "type-env" => "dev"
+        ],
+    ]
 ];
 
-
 $config['sys'] = array(
-  'core' => 'estic',
-  'es' => 'estic',
+    'core' => 'estic',
+    'es' => 'estic',
   'estic' => array(
     'sign' => 'es',
     'dir' => 'estic/',
