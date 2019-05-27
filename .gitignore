@@ -55,6 +55,7 @@ ngdefensor/src/
 dist-server
 
 orm/classes/
+orm/crud/
 orm/config/
 orm/crud/
 orm/map/
