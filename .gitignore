@@ -47,9 +47,6 @@ Thumbs.db
 node_modules/
 .idea/
 vendor/
-orm/classes/
-orm/schema/
-
 composer.lock
 package-lock.json
 Gruntfile.js
