@@ -429,8 +429,6 @@ CREATE TABLE `es_users`
     `signin_method` VARCHAR(100),
     `uid` VARCHAR(499),
     `country_code` VARCHAR(50),
-    `authy_id` VARCHAR(50),
-    `verified` TINYINT(1),
     `change_count` INTEGER DEFAULT 0 NOT NULL,
     `status` VARCHAR(15) DEFAULT 'ENABLED' NOT NULL,
     `date_modified` DATETIME NOT NULL,
