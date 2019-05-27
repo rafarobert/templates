@@ -47,7 +47,6 @@ Thumbs.db
 node_modules/
 .idea/
 vendor/
-propel_log.txt
 orm/classes/
 orm/schema/
 
@@ -57,3 +56,11 @@ Gruntfile.js
 ngdefensor/src/
 
 dist-server
+
+orm/classes/
+orm/config/
+orm/crud/
+orm/map/
+orm/migrations/
+orm/schema/
+orm/sql/
