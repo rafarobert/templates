@@ -524,7 +524,6 @@ $config["hosts"] = [
 
     "impuestos" => [
         [
-            "proy" => "impuestos",
             "host" => "local.impuestos.com.bo",
             "hostname-core" => "local.estic.com.bo",
             "hostname" => "local.impuestos.com.bo",
@@ -540,7 +539,6 @@ $config["hosts"] = [
 
     "bmsc" => [
         [
-            "proy" => "bmsc",
             "host" => "local.bmsc.com.bo",
             "hostname-core" => "local.estic.com.bo",
             "hostname" => "local.bmsc.com.bo",
@@ -555,7 +553,6 @@ $config["hosts"] = [
     ],
     "uninet" => [
         [
-            "proy" => "uninet",
             "host" => "local.bancounion.com.bo",
             "hostname-core" => "local.estic.com.bo",
             "hostname" => "local.bancounion.com.bo",
