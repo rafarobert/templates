@@ -2,8 +2,8 @@
 /**
  * Created by Estic.
  * User: rafaelgutierrez
- * Date: 22/05/2019
- * Time: 12:02 pm
+ * Date: 27/05/2019
+ * Time: 1:41 am
  */
 use \Propel\Runtime\ActiveQuery\Criteria as Criteria;
 
@@ -22,7 +22,7 @@ class ES_Model_Messages extends ES_Estic_Model
     /**
      * Value for id_message static option.
      *
-     * @var        int
+     * @var        string
      */
     public static $fieldIdMessage = 'id_message';
     
@@ -53,6 +53,48 @@ class ES_Model_Messages extends ES_Estic_Model
      * @var        string
      */
     public static $fieldVerified = 'verified';
+    
+    /**
+     * Value for status static option.
+     *
+     * @var        int
+     */
+    public static $fieldStatus = 'status';
+    
+    /**
+     * Value for change_count static option.
+     *
+     * @var        string
+     */
+    public static $fieldChangeCount = 'change_count';
+    
+    /**
+     * Value for id_user_modified static option.
+     *
+     * @var        int
+     */
+    public static $fieldIdUserModified = 'id_user_modified';
+    
+    /**
+     * Value for id_user_created static option.
+     *
+     * @var        int
+     */
+    public static $fieldIdUserCreated = 'id_user_created';
+    
+    /**
+     * Value for date_modified static option.
+     *
+     * @var        int
+     */
+    public static $fieldDateModified = 'date_modified';
+    
+    /**
+     * Value for date_created static option.
+     *
+     * @var        string
+     */
+    public static $fieldDateCreated = 'date_created';
     
     
     /**
@@ -89,6 +131,48 @@ class ES_Model_Messages extends ES_Estic_Model
      * @var        int
      */
     public $verified = 0;
+    
+    /**
+     * Value for status field.
+     *
+     * @var        string
+     */
+    public $status = '';
+    
+    /**
+     * Value for change_count field.
+     *
+     * @var        int
+     */
+    public $change_count = 0;
+    
+    /**
+     * Value for id_user_modified field.
+     *
+     * @var        int
+     */
+    public $id_user_modified = 0;
+    
+    /**
+     * Value for id_user_created field.
+     *
+     * @var        int
+     */
+    public $id_user_created = 0;
+    
+    /**
+     * Value for date_modified field.
+     *
+     * @var        string
+     */
+    public $date_modified = '';
+    
+    /**
+     * Value for date_created field.
+     *
+     * @var        string
+     */
+    public $date_created = '';
     
 
     
@@ -192,6 +276,36 @@ class ES_Model_Messages extends ES_Estic_Model
         return $this->verified;
     }
     
+    public function getStatus()
+    {
+        return $this->status;
+    }
+    
+    public function getChangeCount()
+    {
+        return $this->change_count;
+    }
+    
+    public function getIdUserModified()
+    {
+        return $this->id_user_modified;
+    }
+    
+    public function getIdUserCreated()
+    {
+        return $this->id_user_created;
+    }
+    
+    public function getDateModified()
+    {
+        return $this->date_modified;
+    }
+    
+    public function getDateCreated()
+    {
+        return $this->date_created;
+    }
+    
 
     
 
@@ -223,6 +337,42 @@ class ES_Model_Messages extends ES_Estic_Model
     public function setVerified($verified = ''){
         if(objectHas($this,'verified', false)){
             return $this->verified = $verified;
+        }
+    }
+    
+    public function setStatus($status = ''){
+        if(objectHas($this,'status', false)){
+            return $this->status = $status;
+        }
+    }
+    
+    public function setChangeCount($changeCount = ''){
+        if(objectHas($this,'change_count', false)){
+            return $this->change_count = $changeCount;
+        }
+    }
+    
+    public function setIdUserModified($idUserModified = ''){
+        if(objectHas($this,'id_user_modified', false)){
+            return $this->id_user_modified = $idUserModified;
+        }
+    }
+    
+    public function setIdUserCreated($idUserCreated = ''){
+        if(objectHas($this,'id_user_created', false)){
+            return $this->id_user_created = $idUserCreated;
+        }
+    }
+    
+    public function setDateModified($dateModified = ''){
+        if(objectHas($this,'date_modified', false)){
+            return $this->date_modified = $dateModified;
+        }
+    }
+    
+    public function setDateCreated($dateCreated = ''){
+        if(objectHas($this,'date_created', false)){
+            return $this->date_created = $dateCreated;
         }
     }
     
@@ -278,6 +428,78 @@ class ES_Model_Messages extends ES_Estic_Model
     
     public function findOneByVerified($verified,$orderBy = '', $direction = 'ASC'){
         $aData = $this->get_by(['verified' => $verified],false,true,$orderBy,$direction);
+        $aData = $this->setForeigns($aData,$orderBy,$direction);
+        if(isArray($aData)){
+            return $this->setFromData($aData[0]);
+        } else if(isObject($aData)){
+            return $this->setFromData($aData);
+        } else {
+            return null;
+        }
+    }
+    
+    public function findOneByStatus($status,$orderBy = '', $direction = 'ASC'){
+        $aData = $this->get_by(['status' => $status],false,true,$orderBy,$direction);
+        $aData = $this->setForeigns($aData,$orderBy,$direction);
+        if(isArray($aData)){
+            return $this->setFromData($aData[0]);
+        } else if(isObject($aData)){
+            return $this->setFromData($aData);
+        } else {
+            return null;
+        }
+    }
+    
+    public function findOneByChangeCount($changeCount,$orderBy = '', $direction = 'ASC'){
+        $aData = $this->get_by(['change_count' => $changeCount],false,true,$orderBy,$direction);
+        $aData = $this->setForeigns($aData,$orderBy,$direction);
+        if(isArray($aData)){
+            return $this->setFromData($aData[0]);
+        } else if(isObject($aData)){
+            return $this->setFromData($aData);
+        } else {
+            return null;
+        }
+    }
+    
+    public function findOneByIdUserModified($idUserModified,$orderBy = '', $direction = 'ASC'){
+        $aData = $this->get_by(['id_user_modified' => $idUserModified],false,true,$orderBy,$direction);
+        $aData = $this->setForeigns($aData,$orderBy,$direction);
+        if(isArray($aData)){
+            return $this->setFromData($aData[0]);
+        } else if(isObject($aData)){
+            return $this->setFromData($aData);
+        } else {
+            return null;
+        }
+    }
+    
+    public function findOneByIdUserCreated($idUserCreated,$orderBy = '', $direction = 'ASC'){
+        $aData = $this->get_by(['id_user_created' => $idUserCreated],false,true,$orderBy,$direction);
+        $aData = $this->setForeigns($aData,$orderBy,$direction);
+        if(isArray($aData)){
+            return $this->setFromData($aData[0]);
+        } else if(isObject($aData)){
+            return $this->setFromData($aData);
+        } else {
+            return null;
+        }
+    }
+    
+    public function findOneByDateModified($dateModified,$orderBy = '', $direction = 'ASC'){
+        $aData = $this->get_by(['date_modified' => $dateModified],false,true,$orderBy,$direction);
+        $aData = $this->setForeigns($aData,$orderBy,$direction);
+        if(isArray($aData)){
+            return $this->setFromData($aData[0]);
+        } else if(isObject($aData)){
+            return $this->setFromData($aData);
+        } else {
+            return null;
+        }
+    }
+    
+    public function findOneByDateCreated($dateCreated,$orderBy = '', $direction = 'ASC'){
+        $aData = $this->get_by(['date_created' => $dateCreated],false,true,$orderBy,$direction);
         $aData = $this->setForeigns($aData,$orderBy,$direction);
         if(isArray($aData)){
             return $this->setFromData($aData[0]);
@@ -435,6 +657,180 @@ class ES_Model_Messages extends ES_Estic_Model
         return $aData;
     }
     
+    public function filterByStatus($status, $selecting = null, $orderByOrAsModel = true, $direction = 'ASC'){
+        $bSelecting = true;
+        $aSetttings = array();
+        $bAsModel = true;
+        if(isArray($selecting)){
+            $aSetttings = $selecting;
+        } else if(isString($selecting)){
+            $aSetttings[] = $selecting;
+        } else if(isBoolean($selecting) || $selecting == null){
+            $bSelecting = false;
+        }
+        $aSetttings['status'] = $status;
+
+        if(isString($orderByOrAsModel)){
+            $orderBy = $orderByOrAsModel;
+        } else if(is_bool($orderByOrAsModel)){
+            $bAsModel = $orderByOrAsModel;
+        }
+        $aData = $this->get_by($aSetttings, $bSelecting, null, $orderByOrAsModel, $direction);
+        if($bAsModel){
+            $oDatas = array();
+            foreach ($aData as $data){
+                $oDatas[] = $this->setForeigns($data,$orderByOrAsModel,$direction);
+            }
+            return $oDatas;
+        }
+        return $aData;
+    }
+    
+    public function filterByChangeCount($changeCount, $selecting = null, $orderByOrAsModel = true, $direction = 'ASC'){
+        $bSelecting = true;
+        $aSetttings = array();
+        $bAsModel = true;
+        if(isArray($selecting)){
+            $aSetttings = $selecting;
+        } else if(isString($selecting)){
+            $aSetttings[] = $selecting;
+        } else if(isBoolean($selecting) || $selecting == null){
+            $bSelecting = false;
+        }
+        $aSetttings['change_count'] = $changeCount;
+
+        if(isString($orderByOrAsModel)){
+            $orderBy = $orderByOrAsModel;
+        } else if(is_bool($orderByOrAsModel)){
+            $bAsModel = $orderByOrAsModel;
+        }
+        $aData = $this->get_by($aSetttings, $bSelecting, null, $orderByOrAsModel, $direction);
+        if($bAsModel){
+            $oDatas = array();
+            foreach ($aData as $data){
+                $oDatas[] = $this->setForeigns($data,$orderByOrAsModel,$direction);
+            }
+            return $oDatas;
+        }
+        return $aData;
+    }
+    
+    public function filterByIdUserModified($idUserModified, $selecting = null, $orderByOrAsModel = true, $direction = 'ASC'){
+        $bSelecting = true;
+        $aSetttings = array();
+        $bAsModel = true;
+        if(isArray($selecting)){
+            $aSetttings = $selecting;
+        } else if(isString($selecting)){
+            $aSetttings[] = $selecting;
+        } else if(isBoolean($selecting) || $selecting == null){
+            $bSelecting = false;
+        }
+        $aSetttings['id_user_modified'] = $idUserModified;
+
+        if(isString($orderByOrAsModel)){
+            $orderBy = $orderByOrAsModel;
+        } else if(is_bool($orderByOrAsModel)){
+            $bAsModel = $orderByOrAsModel;
+        }
+        $aData = $this->get_by($aSetttings, $bSelecting, null, $orderByOrAsModel, $direction);
+        if($bAsModel){
+            $oDatas = array();
+            foreach ($aData as $data){
+                $oDatas[] = $this->setForeigns($data,$orderByOrAsModel,$direction);
+            }
+            return $oDatas;
+        }
+        return $aData;
+    }
+    
+    public function filterByIdUserCreated($idUserCreated, $selecting = null, $orderByOrAsModel = true, $direction = 'ASC'){
+        $bSelecting = true;
+        $aSetttings = array();
+        $bAsModel = true;
+        if(isArray($selecting)){
+            $aSetttings = $selecting;
+        } else if(isString($selecting)){
+            $aSetttings[] = $selecting;
+        } else if(isBoolean($selecting) || $selecting == null){
+            $bSelecting = false;
+        }
+        $aSetttings['id_user_created'] = $idUserCreated;
+
+        if(isString($orderByOrAsModel)){
+            $orderBy = $orderByOrAsModel;
+        } else if(is_bool($orderByOrAsModel)){
+            $bAsModel = $orderByOrAsModel;
+        }
+        $aData = $this->get_by($aSetttings, $bSelecting, null, $orderByOrAsModel, $direction);
+        if($bAsModel){
+            $oDatas = array();
+            foreach ($aData as $data){
+                $oDatas[] = $this->setForeigns($data,$orderByOrAsModel,$direction);
+            }
+            return $oDatas;
+        }
+        return $aData;
+    }
+    
+    public function filterByDateModified($dateModified, $selecting = null, $orderByOrAsModel = true, $direction = 'ASC'){
+        $bSelecting = true;
+        $aSetttings = array();
+        $bAsModel = true;
+        if(isArray($selecting)){
+            $aSetttings = $selecting;
+        } else if(isString($selecting)){
+            $aSetttings[] = $selecting;
+        } else if(isBoolean($selecting) || $selecting == null){
+            $bSelecting = false;
+        }
+        $aSetttings['date_modified'] = $dateModified;
+
+        if(isString($orderByOrAsModel)){
+            $orderBy = $orderByOrAsModel;
+        } else if(is_bool($orderByOrAsModel)){
+            $bAsModel = $orderByOrAsModel;
+        }
+        $aData = $this->get_by($aSetttings, $bSelecting, null, $orderByOrAsModel, $direction);
+        if($bAsModel){
+            $oDatas = array();
+            foreach ($aData as $data){
+                $oDatas[] = $this->setForeigns($data,$orderByOrAsModel,$direction);
+            }
+            return $oDatas;
+        }
+        return $aData;
+    }
+    
+    public function filterByDateCreated($dateCreated, $selecting = null, $orderByOrAsModel = true, $direction = 'ASC'){
+        $bSelecting = true;
+        $aSetttings = array();
+        $bAsModel = true;
+        if(isArray($selecting)){
+            $aSetttings = $selecting;
+        } else if(isString($selecting)){
+            $aSetttings[] = $selecting;
+        } else if(isBoolean($selecting) || $selecting == null){
+            $bSelecting = false;
+        }
+        $aSetttings['date_created'] = $dateCreated;
+
+        if(isString($orderByOrAsModel)){
+            $orderBy = $orderByOrAsModel;
+        } else if(is_bool($orderByOrAsModel)){
+            $bAsModel = $orderByOrAsModel;
+        }
+        $aData = $this->get_by($aSetttings, $bSelecting, null, $orderByOrAsModel, $direction);
+        if($bAsModel){
+            $oDatas = array();
+            foreach ($aData as $data){
+                $oDatas[] = $this->setForeigns($data,$orderByOrAsModel,$direction);
+            }
+            return $oDatas;
+        }
+        return $aData;
+    }
+    
 
     public function getNewMessage()
     {
@@ -536,6 +932,18 @@ class ES_Model_Messages extends ES_Estic_Model
             
             'verified' => $this->verified,
             
+            'status' => $this->status,
+            
+            'change_count' => $this->change_count,
+            
+            'id_user_modified' => $this->id_user_modified,
+            
+            'id_user_created' => $this->id_user_created,
+            
+            'date_modified' => $this->date_modified,
+            
+            'date_created' => $this->date_created,
+            
         );
         if($bWithForeign){
             
@@ -565,6 +973,18 @@ class ES_Model_Messages extends ES_Estic_Model
             'AuthyId' => $this->authy_id,
             
             'Verified' => $this->verified,
+            
+            'Status' => $this->status,
+            
+            'ChangeCount' => $this->change_count,
+            
+            'IdUserModified' => $this->id_user_modified,
+            
+            'IdUserCreated' => $this->id_user_created,
+            
+            'DateModified' => $this->date_modified,
+            
+            'DateCreated' => $this->date_created,
             
         );
         if($bWithForeign){
